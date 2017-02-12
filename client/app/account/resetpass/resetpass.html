@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Reset Password</h1>
+        </div>
+        <div class="col-sm-12">
+            <form class="form" name="form" ng-submit="vm.resetPass(form)" novalidate>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" name="newPassword" class="form-control" ng-model="vm.user.newPassword" placeholder="New Password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <div class="form-group has-error">
+                    <p class="help-block" ng-show="form.newPassword.$error.required && vm.submitted">
+                        Please enter new password.
+                    </p>
+                    <p class="help-block" ng-show="form.confirmPassword.$error.required && vm.submitted">
+                        Please enter confirm password.
+                    </p>
+                    <p class="help-block" ng-show="!vm.match && vm.submitted && vm.user.newPassword && vm.user.confirmPassword">
+                        Passwords are not match
+                    </p>
+                    <p class="help-block">{{ vm.errors.other }}</p>
+                </div>
+                <div>
+                    <button class="btn btn-inverse btn-lg btn-login" type="submit">
+                        Reset Password
+                    </button>
+                </div>
+                <hr/>
+            </form>
+        </div>
+    </div>
+</div>
